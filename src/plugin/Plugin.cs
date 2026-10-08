@@ -13,6 +13,7 @@ using MegabonkTogether.Common;
 using MegabonkTogether.Common.Models;
 using MegabonkTogether.Configuration;
 using MegabonkTogether.Helpers;
+using MegabonkTogether.Patches;
 using MegabonkTogether.Scripts;
 using MegabonkTogether.Scripts.Button;
 using MegabonkTogether.Scripts.Enemies;
@@ -385,6 +386,7 @@ namespace MegabonkTogether
             }
             else
             {
+                SaveManagerPatches.FlushNetplayProgression("leaving run");
                 TransitionUI.Instance.LoadMenu();
             }
         }

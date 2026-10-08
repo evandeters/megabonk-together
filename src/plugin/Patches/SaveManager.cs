@@ -90,6 +90,35 @@ namespace MegabonkTogether.Patches
         }
 
         /// <summary>
+        /// Write the local player's in-memory progression and stats to disk when saving during netplay is allowed.
+        /// Needed because the mod can send a player back to the menu (host/peers leaving) without going through the game's own run exit.
+        /// </summary>
+        public static void FlushNetplayProgression(string reason)
+        {
+            if (!synchronizationService.HasNetplaySessionInitialized() || !ModConfig.AllowSavesDuringNetplay.Value)
+            {
+                return;
+            }
+
+            var saveManager = SaveManager.Instance;
+            if (saveManager == null || saveManager.progression == null)
+            {
+                return;
+            }
+
+            try
+            {
+                Plugin.Log.LogInfo($"Saving netplay progression ({reason})");
+                saveManager.SaveProgression();
+                saveManager.SaveStats();
+            }
+            catch (Exception ex)
+            {
+                Plugin.Log.LogError($"Failed to save netplay progression ({reason}): {ex}");
+            }
+        }
+
+        /// <summary>
         /// Trigger update when quitting if an update is available
         [HarmonyPrefix]
         [HarmonyPatch(nameof(SaveManager.OnApplicationQuit))]
