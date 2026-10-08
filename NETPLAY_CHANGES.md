@@ -36,6 +36,8 @@ You get i-frames when leveling up/getting a reward/openning a chest. This is to 
 The game naturally save progression and update your achievement. The game is not really meant to be played online so all of the save/steam interaction is prohibited when playing a netplay game.
 Same thing with uploading your score to the leaderbord, you would get banned anyway , so let's not do that 😅
 
+The experimental `Save progression` option (under `Netplay options`) lifts the save restriction **for your own save only**. It is a local setting: the host enabling it does not enable it for the clients, so every player who wants to keep their progression must turn it on themselves (the friendlies lobby panel shows `Save progression (you)`). When enabled, your progression is also written when the mod sends you back to the menu (host or other players leaving). Leaderboard and Steam achievement/stat uploads stay blocked either way. Once you leave the netplay session (back to the main menu), solo runs save and upload exactly like vanilla.
+
 ## Custom game balance
 
 The mod feature some game code to try to re balance the game as more player join a session.

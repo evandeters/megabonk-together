@@ -171,8 +171,8 @@ namespace MegabonkTogether.Scripts
             {
                 if (textComp.name.StartsWith("Text"))
                 {
-                    textComp.text = "Allow Saving progression\nUse at your own risk";
-                    textComp.fontSize = 20;
+                    textComp.text = "Allow Saving progression\nOnly your own save, each player sets it\nUse at your own risk";
+                    textComp.fontSize = 18;
                     textComp.enableWordWrapping = false;
                 }
                 else if (textComp.name.StartsWith("StatusText"))

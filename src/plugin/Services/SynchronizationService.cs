@@ -26,6 +26,7 @@ using Il2CppInterop.Runtime.InteropTypes;
 using MegabonkTogether.Common.Messages;
 using MegabonkTogether.Common.Messages.GameNetworkMessages;
 using MegabonkTogether.Common.Models;
+using MegabonkTogether.Configuration;
 using MegabonkTogether.Extensions;
 using MegabonkTogether.Helpers;
 using MegabonkTogether.Patches;
@@ -563,6 +564,8 @@ namespace MegabonkTogether.Services
             }
 
             gameBalanceService.Initialize();
+
+            logger.LogInfo($"Save progression during netplay (local setting): {(ModConfig.AllowSavesDuringNetplay.Value ? "ON" : "OFF")}");
 
             Plugin.Instance.PreventDeath();
         }

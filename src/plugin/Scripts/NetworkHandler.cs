@@ -176,6 +176,7 @@ namespace MegabonkTogether.Scripts
 
         public void ResetNetworking()
         {
+            hasFoundMatch = null;
             isConnectedToMatchMaker = null;
             Plugin.Instance.Mode = new();
             isHost = false;

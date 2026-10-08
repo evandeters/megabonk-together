@@ -229,6 +229,12 @@ namespace MegabonkTogether.Patches
 
                 text.text += $"\nShared Experience: {sharedExpStatus}";
             }
+
+            var saveStatus = ModConfig.AllowSavesDuringNetplay.Value
+                ? "<color=green>ON</color>"
+                : "<color=red>OFF</color>";
+            text.text += $"\nSave progression (you): {saveStatus}";
+
             text.enableWordWrapping = false;
             text.alignment = TextAlignmentOptions.TopLeft;
             text.fontSize = 36;
@@ -282,7 +288,7 @@ namespace MegabonkTogether.Patches
             copyButtonRect.anchorMin = new Vector2(1f, 0f);
             copyButtonRect.anchorMax = new Vector2(1f, 0f);
             copyButtonRect.pivot = new Vector2(1f, 0f);
-            copyButtonRect.anchoredPosition = new Vector2(0f, 10f);
+            copyButtonRect.anchoredPosition = new Vector2(0f, -35f);
             copyButtonRect.sizeDelta = new Vector2(200f, 40f);
 
             copyButtonObj.transform.SetAsLastSibling();
