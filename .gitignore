@@ -57,3 +57,5 @@ nunit-*.xml
 thirdparty/
 
 InputHandler.cs
+# scripts/package-local.sh output
+/build/
